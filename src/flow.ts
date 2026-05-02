@@ -93,6 +93,8 @@ export function flowText(
   const out: FlowedLine[] = [];
   let cursor: LayoutCursor = { segmentIndex: 0, graphemeIndex: 0 };
   let y = opts.paddingY;
+  // Hard cap on the outer loop: defensive against a future change where the
+  // exit conditions stop firing (e.g. y not advancing or `exhausted` never set).
   let safety = 0;
 
   let exhausted = false;
@@ -118,6 +120,11 @@ export function flowText(
         exhausted = true;
         break;
       }
+      // Skip if pretext returned a line but didn't consume any text. The simple
+      // line walk always advances at least one grapheme/segment, but the chunk
+      // path (BiDi, rich-text, or future prepare options) has degenerate cases
+      // that can return zero-progress. Without this we'd push an empty line and
+      // re-query the same cursor on the next run, wasting work.
       const advanced =
         line.end.segmentIndex !== cursor.segmentIndex ||
         line.end.graphemeIndex !== cursor.graphemeIndex;
