@@ -65,17 +65,7 @@ header {
 }
 
 .obstacle {
-  cursor: grab;
   opacity: 0.92;
-  transition: filter 0.15s;
-}
-
-.obstacle:hover {
-  filter: brightness(1.05);
-}
-
-.obstacle:active {
-  cursor: grabbing;
 }
 
 .meta {
