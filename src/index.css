@@ -1,0 +1,85 @@
+:root {
+  font-family: Helvetica, Arial, sans-serif;
+  color-scheme: light;
+  color: #1a1a1a;
+  background: #f4f4f6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.app {
+  width: min(100%, 800px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+header {
+  text-align: center;
+}
+
+.hint {
+  margin: 0.4rem 0 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.stage {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.canvas {
+  width: 100%;
+  height: auto;
+  max-width: 720px;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  touch-action: none;
+}
+
+.bg {
+  fill: #ffffff;
+}
+
+.line {
+  font: 16px Helvetica, Arial, sans-serif;
+  fill: #1a1a1a;
+  white-space: pre;
+  user-select: text;
+}
+
+.obstacle {
+  cursor: grab;
+  opacity: 0.92;
+  transition: filter 0.15s;
+}
+
+.obstacle:hover {
+  filter: brightness(1.05);
+}
+
+.obstacle:active {
+  cursor: grabbing;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: #777;
+  font-variant-numeric: tabular-nums;
+}
