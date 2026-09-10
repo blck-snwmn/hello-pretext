@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production bun src/index.ts"
   },
   "dependencies": {
-    "@chenglou/pretext": "0.0.8",
+    "@chenglou/pretext": "0.0.9",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
