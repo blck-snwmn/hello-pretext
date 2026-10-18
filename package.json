@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun --hot src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
     "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
     "start": "NODE_ENV=production bun src/index.ts"
   },
@@ -14,8 +16,10 @@
     "react-dom": "19.3.1"
   },
   "devDependencies": {
+    "@types/bun": "latest",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@types/bun": "latest"
+    "playwright": "1.64.1",
+    "typescript": "7.0.2"
   }
 }
