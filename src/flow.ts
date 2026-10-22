@@ -115,7 +115,7 @@ export function flowText(
       const runWidth = runR - runL;
       if (runWidth < MIN_RUN_WIDTH) continue;
 
-      const line = layoutNextLine(prepared, cursor, runWidth);
+      const line = layoutNextLine(prepared, runWidth, cursor);
       if (line === null) {
         exhausted = true;
         break;
